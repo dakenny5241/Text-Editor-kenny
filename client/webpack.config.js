@@ -45,33 +45,29 @@ module.exports = () => {
         swSrc: './src-sw.js',
         swDest: 'src-sw.js',
       }),
-      new MiniCssExtractPlugin(),
-      filename:'main.css',
-      
     ],
+      
 
     module: {
       rules: [
         {
-          test: /\.(js|jsx)$/,
+          test: /\.css$/i,
+          use: [`style-loader`, 'css-loader'],
+        }
+        {
+          test: /\.m?js$/,
+
           exclude: /node_modules/,
           use: {
-            loader: "babel-loader"
-          }
-        },
-        {
-          test: /\.s[ac]ss$/i,
-          use: [
-            MiniCssExtractPlugin.loader,
-            'css-loader',
-            'sass-loader',
-          ],
-        },
-        {
-          test: /\.(png|svg|jpg|gif)$/,
-          use: [
-            'file-loader',
-          ],
+            loader: "babel-loader",
+            options: {
+              presets: ['@babel/preset-env'],
+              plugins: [
+                '@babel/plugin-proposal-object-rest-spread',
+                '@babel/transform-runtime'
+              ],
+            },
+          },
         },
       ],
     },
