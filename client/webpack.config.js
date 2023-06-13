@@ -20,8 +20,8 @@ module.exports = () => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './public/index.html',
-        filename: 'index.html',
+        template: './index.html',
+        title: 'JATE',
       }),
       new WebpackPwaManifest({
         fingerprints: false,
