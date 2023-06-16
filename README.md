@@ -16,7 +16,7 @@ Text Editor is a single-page Progressive Web Application (PWA) that allows users
 
 ## Deployment
 1. Build the application: `npm run build`
-2. Deploy to Heroku: `git push heroku master`
+2. Deploy to Heroku: `git push heroku main`
 
 ## License
 This project is licensed under the MIT License.
